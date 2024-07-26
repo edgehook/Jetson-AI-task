@@ -15,9 +15,9 @@
 - 板子基本外设接口调试
 
 ### 2. 采集多路图像，视频处理
-- 多摄像头输入支持，支持方式采用[gst-launch-1.0](./gst-launch-1.0测试录制视频命令集合.md)指令和调用gstreamer的API接口
+- 多摄像头输入支持，支持方式采用[gst-launch-1.0](./gst-launch-1.0测试录制视频命令集合.md)指令和调用[gstreamer API](./gst-camera-demo/gst-demo.cpp)
+- 通过[OpenCV](./opencv-sample-apps-modify/opencv_camera/opencv_gst_camera.cpp)，FFmpeg等图像和视频分析库，提供丰富的图像和视频处理功能
 - NVIDIA提供的DeepStream SDK处理工具进行视频流的接收、解码、处理和输出，前期使用DeepStream提供的示例应用程序作为基础，进行进一步的开发和优化
-- 安装OpenCV，FFmpeg等图像和视频处理库，提供丰富的图像和视频处理功能
 - 根据具体的应用需求，配置视频处理流程，可能包括目标检测、跟踪、分类等任务
 
 ### 3. Jetson支持多种AI框架
