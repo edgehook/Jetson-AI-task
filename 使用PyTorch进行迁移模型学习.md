@@ -72,7 +72,7 @@ pytorch-ssd 目录结构
 ```
 以上pytorch-ssd目录中我们当前只需要关心三个，data/，models，和train_ssd.py。
 
-1. data/：是放置数据集的路径，本例中使用的测试数据集是[CCPD](https://github.com/detectRecog/CCPD)(Chinese City Parking Dataset)，默认下载的数据结构是test/，train/，val/，需将其转换成Pascal VOC格式的数据集，网上也有已经转换好的[voc数据集]（https://blog.csdn.net/qq_21386397/article/details/138757115） ps：关于[Pascal  VOC数据集格式请参考博客](https://blog.csdn.net/weixin_44095109/article/details/140990451?spm=1001.2014.3001.5502)
+1. data/：是放置数据集的路径，本例中使用的测试数据集是[CCPD](https://github.com/detectRecog/CCPD)(Chinese City Parking Dataset)，默认下载的数据结构是test/，train/，val/，需将其转换成Pascal VOC格式的数据集，网上也有已经转换好的[voc数据集](https://blog.csdn.net/qq_21386397/article/details/138757115)ps：关于[Pascal  VOC数据集格式请参考博客](https://blog.csdn.net/weixin_44095109/article/details/140990451?spm=1001.2014.3001.5502)
 
 原始CCPD2020数据集格式：
 ```bash
