@@ -48,6 +48,29 @@ for orientation in ExifTags.TAGS.keys():
     if ExifTags.TAGS[orientation] == 'Orientation':
         break
 
+def gstreamer_pipeline(
+    sensor_id=0,
+    capture_width=1920,
+    capture_height=1080,
+    display_width=1024,
+    display_height=768,
+    framerate=30,
+    flip_method=0,
+):
+    return (
+        "nvv4l2camerasrc device=/dev/video%d ! video/x-raw(memory:NVMM), format=(string)UYVY, width=(int)%d, height=(int)%d, framerate=(fraction)%d/1 ! nvvidconv flip-method=%d ! video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink"
+        % (
+            sensor_id,
+            capture_width,
+            capture_height,
+            framerate,
+            flip_method,
+            display_width,
+            display_height,
+        )
+    )
+
+
 
 def get_hash(paths):
     # Returns a single hash value of a list of paths (files or dirs)
@@ -363,7 +386,17 @@ class LoadStreams:
             if s == 0:
                 assert not is_colab(), '--source 0 webcam unsupported on Colab. Rerun command in a local environment.'
                 assert not is_kaggle(), '--source 0 webcam unsupported on Kaggle. Rerun command in a local environment.'
-            cap = cv2.VideoCapture(s)
+
+            if s == 0:
+                print('[gstreamer] ', gstreamer_pipeline(sensor_id=s, capture_width=2880, capture_height=1860))
+                cap = cv2.VideoCapture(gstreamer_pipeline(sensor_id=s, capture_width=2880, capture_height=1860))
+            elif s == 1:
+                print('[gstreamer] ', gstreamer_pipeline(sensor_id=s, capture_width=3840, capture_height=2160))
+                cap = cv2.VideoCapture(gstreamer_pipeline(sensor_id=s, capture_width=3840, capture_height=2160))
+            else:
+                print('[gstreamer] ', gstreamer_pipeline())
+                cap = cv2.VideoCapture(gstreamer_pipeline())
+
             assert cap.isOpened(), f'{st}Failed to open {s}'
             w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
             h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
