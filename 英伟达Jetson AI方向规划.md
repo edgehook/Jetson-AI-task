@@ -5,7 +5,7 @@
 |2| 采集多路图像，视频处理 | 一般 | Todo | |
 |3| Jetson支持多种AI框架 | 一般 | Todo | |
 |4| AI网络视频录像机NVR | 一般 | Todo | |
-|5| AGX Orin车牌AI推理应用 | 一般 | Doing | |
+|5| AGX Orin车牌推理 | 一般 | Doing | |
 
 ---
 
@@ -36,6 +36,6 @@
 - 链接：https://github.com/asmirnou/watsor 
 	https://github.com/JoeTester1965/CudaCamz
 
-### 5. AGX Orin车牌AI推理应用
-- 车牌检测训练，推理检测https://gitee.com/kang00718/license_plate_detect.git
-- 车牌识别训练，推理https://gitee.com/kang00718/license_plate_recognition.git
+### 5. AGX Orin车牌推理
+- [车牌检测训练](https://github.com/edgehook/license_plate_detect.git)，推理: https://gitee.com/kang00718/license_plate_detect.git
+- [车牌识别训练](https://github.com/edgehook/license_plate_recognition.git)，推理: https://gitee.com/kang00718/license_plate_recognition.git
